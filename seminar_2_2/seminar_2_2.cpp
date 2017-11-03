@@ -106,6 +106,20 @@ void example3() {
 }
 
 int main() {
+	
+	cout << "int - " << sizeof(int) << endl;
+	cout << "unsigned int - " << sizeof(long long) << endl;
+	cout << "long - " << sizeof(long) << endl;
+	cout << "unsigned long - " << sizeof(unsigned long) << endl;
+	cout << "long long - " << sizeof(long long) << endl;
+	cout << "long long int - " << sizeof(long long int) << endl;
+	cout << "unsigned long long - " << sizeof(unsigned long long) << endl;
+	cout << "float - " << sizeof(float) << endl;
+	cout << "double - " << sizeof(double) << endl;
+	cout << "size_t - " << sizeof(size_t) << endl;
+	cout << "bool - " << sizeof(bool) << endl;
+	cout << "char - " << sizeof(char) << endl;
+	
 	//example0();
 	//example1();
 	example2();
