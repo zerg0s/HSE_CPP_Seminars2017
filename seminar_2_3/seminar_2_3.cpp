@@ -22,13 +22,22 @@ void example2_3_1() {
     const string& str2 = str1; // str2 - доступная только для чтения ссылка на str1.
     str1[0] = 'a'; // ok
     //str2[0] = 'a'; // error!
-    const string zzz = "zzz";
-    cout << str1.insert(1, zzz) << endl;
-    cout << str1.find(zzz) << endl; // Позиция первого вхождения или "-1".
-    cout << str1.replace(str1.find(zzz), zzz.length(), "") << endl; // replace: откуда, сколько, "на что менять", размеры могут не совпадать
-
-    for(auto ch : str1) {
+    const string ZZZ = "zzz";
+    cout << str1.insert(1, ZZZ) << endl;
+    cout << str1.find(ZZZ) << endl; // Позиция первого вхождения или "-1".
+	
+	//if (str1.find("123") != -1) {
+	if (str1.find(ZZZ) != -1) {
+		cout << str1.replace(str1.find(ZZZ), ZZZ.length(), "") << endl; // replace: откуда, сколько, "на что менять", размеры могут не совпадать
+	}
+	else {
+		cout << "Error!" << endl;
+	}
+    
+	for (auto ch : str1) {
+	//for (auto& ch : str1) {
         ch += 1;
+		//cout << ch;
     }
     cout << str1 << endl; //поменяется ли строка?
 
@@ -60,7 +69,8 @@ void example2_3_2() {
     }
 }
 /*
-    Продублировать заключенную между первым и последним вхождением символа "@" подстроку.
+    Продублировать заключенную между первым и 
+	последним вхождением символа "@" подстроку.
 */
 void example2_3_3() {
     string str = "a @12345@ a";
@@ -87,9 +97,17 @@ void example2_3_4() {
 }
 
 int main() {    
-    example2_3_1();
+
+/*	const string STR;
+	cin >> STR;
+	cout << str << endl;
+	str[0] = 'Z';
+	cout << str << endl;
+	*/
+
+    //example2_3_1();
     //example2_3_2();
-    //example2_3_3();
+    example2_3_3();
     //example2_3_4();
 
     system("pause");
