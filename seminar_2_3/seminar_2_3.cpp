@@ -109,8 +109,7 @@ int main() {
     //example2_3_2();
     example2_3_3();
     //example2_3_4();
-
-    system("pause");
+    
     return 0;
 }
 
