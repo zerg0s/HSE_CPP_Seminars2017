@@ -86,7 +86,7 @@ struct StringHashBySize {
     }
 };
 
-// Собственное ставнение строк - по длине
+// Собственное сравнение строк - по длине
 struct StringEqualBySize {
     bool operator()(const string& str1, const string& str2) const {
 		if (str1.length() == str2.length()) {
