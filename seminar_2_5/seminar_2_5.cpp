@@ -118,7 +118,7 @@ void example3UnorderedSet() {
 // Задача:
 // Попробуйте сложить в unordered_map Автомобили, представленные структурой Car.
 
-int main25(){
+int main(){
     //krTaskD(); // Contest result - OK
     //example1_tuples();
     //example2CustomSort();
