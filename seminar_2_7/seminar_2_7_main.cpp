@@ -11,7 +11,6 @@ int main() {
     
   //  makeDeque();
     makePriorityQueue();
-
-    system("pause");
+    
     return 0;
 }
