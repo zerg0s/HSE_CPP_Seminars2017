@@ -16,7 +16,7 @@ int taskE() {
     for (int i = k; i < n; ++i) {
         cin >> num;
         mapOfNumbers.emplace(num, i);
-        if (mapOfNumbers.begin()->second < i - k + 1) {
+        while (mapOfNumbers.begin()->second < i - k + 1) {
             mapOfNumbers.erase(mapOfNumbers.begin());
         }
         cout << mapOfNumbers.begin()->first << endl;
