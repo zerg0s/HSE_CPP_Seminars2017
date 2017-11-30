@@ -6,9 +6,9 @@
 
 using namespace std;
 
-/* Пример 1. 2 простейшие структуры */
-/* Структура применяется как POD-тип данных,
-структуры хранятся на стеке.
+/* РџСЂРёРјРµСЂ 1. 2 РїСЂРѕСЃС‚РµР№С€РёРµ СЃС‚СЂСѓРєС‚СѓСЂС‹ */
+/* РЎС‚СЂСѓРєС‚СѓСЂР° РїСЂРёРјРµРЅСЏРµС‚СЃСЏ РєР°Рє POD-С‚РёРї РґР°РЅРЅС‹С…,
+СЃС‚СЂСѓРєС‚СѓСЂС‹ С…СЂР°РЅСЏС‚СЃСЏ РЅР° СЃС‚РµРєРµ.
 */
 struct Date {
     int year;
@@ -19,7 +19,7 @@ struct Date {
 struct ItemInStore {
     string name;
     Date expirationDate;
-    int priсe;
+    int priСЃe;
 };
 
 bool operator < (const ItemInStore& item1, const ItemInStore& item2) {
@@ -30,13 +30,13 @@ bool operator < (const ItemInStore& item1, const ItemInStore& item2) {
         || d1.year == d2.year && d1.month == d2.month && d1.day < d2.day;
 }
 
-/* Задача 1.
-Заполнить магазин случайными товарами из перечня
-{"товар1, товар2, товар3"}.
-Для всех указать случайный не истёкший срок годности
-в этом или следующем году.
-Для всех сделать случайную цену в диапазоне [10;100].
-Отсортировать товары магазина по возрастанию срока годности.
+/* Р—Р°РґР°С‡Р° 1.
+Р—Р°РїРѕР»РЅРёС‚СЊ РјР°РіР°Р·РёРЅ СЃР»СѓС‡Р°Р№РЅС‹РјРё С‚РѕРІР°СЂР°РјРё РёР· РїРµСЂРµС‡РЅСЏ
+{"С‚РѕРІР°СЂ1, С‚РѕРІР°СЂ2, С‚РѕРІР°СЂ3"}.
+Р”Р»СЏ РІСЃРµС… СѓРєР°Р·Р°С‚СЊ СЃР»СѓС‡Р°Р№РЅС‹Р№ РЅРµ РёСЃС‚С‘РєС€РёР№ СЃСЂРѕРє РіРѕРґРЅРѕСЃС‚Рё
+РІ СЌС‚РѕРј РёР»Рё СЃР»РµРґСѓСЋС‰РµРј РіРѕРґСѓ.
+Р”Р»СЏ РІСЃРµС… СЃРґРµР»Р°С‚СЊ СЃР»СѓС‡Р°Р№РЅСѓСЋ С†РµРЅСѓ РІ РґРёР°РїР°Р·РѕРЅРµ [10;100].
+РћС‚СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ С‚РѕРІР°СЂС‹ РјР°РіР°Р·РёРЅР° РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ СЃСЂРѕРєР° РіРѕРґРЅРѕСЃС‚Рё.
 */
 vector<ItemInStore> example2_4_1() {
     cout << "\nExample1 started";
@@ -51,7 +51,7 @@ vector<ItemInStore> example2_4_1() {
     for(size_t i = 0; i < N; i++) {
         expDate.year = rand() % 2 + 2017;
         expDate.month = rand() % 12 + 1;
-        expDate.day = rand() % 28 + 1; //чтобы не добавлять еще условий
+        expDate.day = rand() % 28 + 1; //С‡С‚РѕР±С‹ РЅРµ РґРѕР±Р°РІР»СЏС‚СЊ РµС‰Рµ СѓСЃР»РѕРІРёР№
         goods.push_back({listOfGoods.at(rand() % 3),
                         expDate,
                         rand() % 91 + 10
@@ -61,7 +61,7 @@ vector<ItemInStore> example2_4_1() {
     
 	//Print the result
     for(auto item : goods) {
-        cout << item.name << " " << item.priсe << " ";
+        cout << item.name << " " << item.priСЃe << " ";
         cout << item.expirationDate.day << " ";
         cout << item.expirationDate.month << " ";
         cout << item.expirationDate.year << "\n";
@@ -69,24 +69,24 @@ vector<ItemInStore> example2_4_1() {
     return goods;
 }
 
-/* Ссылки */
-/* Написать функцию, которая будет увеличивать цену
-товаров из предыдущей задачи на 10%
+/* РЎСЃС‹Р»РєРё */
+/* РќР°РїРёСЃР°С‚СЊ С„СѓРЅРєС†РёСЋ, РєРѕС‚РѕСЂР°СЏ Р±СѓРґРµС‚ СѓРІРµР»РёС‡РёРІР°С‚СЊ С†РµРЅСѓ
+С‚РѕРІР°СЂРѕРІ РёР· РїСЂРµРґС‹РґСѓС‰РµР№ Р·Р°РґР°С‡Рё РЅР° 10%
 */
-// Какую сигнатуру выбрать?
+// РљР°РєСѓСЋ СЃРёРіРЅР°С‚СѓСЂСѓ РІС‹Р±СЂР°С‚СЊ?
 //void example2(vector<ItemInStore> v) {
 //void example2(const vector<ItemInStore>& v) {
 void example2_4_2(vector<ItemInStore>& goods) {
     cout << "\nExample2 started\n";
     for(ItemInStore& item : goods) {
-        // Ссылка обязательно! Иначе - копия и список не поменяется
-        item.priсe = (int)round(item.priсe * 1.1);
+        // РЎСЃС‹Р»РєР° РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ! РРЅР°С‡Рµ - РєРѕРїРёСЏ Рё СЃРїРёСЃРѕРє РЅРµ РїРѕРјРµРЅСЏРµС‚СЃСЏ
+        item.priСЃe = (int)round(item.priСЃe * 1.1);
     }
 
     for(const auto& item : goods) {
-        // Cсылка желательно, экономим память.
-        // const желательно, ускоряем программу
-        cout << item.name << " " << item.priсe << " ";
+        // CСЃС‹Р»РєР° Р¶РµР»Р°С‚РµР»СЊРЅРѕ, СЌРєРѕРЅРѕРјРёРј РїР°РјСЏС‚СЊ.
+        // const Р¶РµР»Р°С‚РµР»СЊРЅРѕ, СѓСЃРєРѕСЂСЏРµРј РїСЂРѕРіСЂР°РјРјСѓ
+        cout << item.name << " " << item.priСЃe << " ";
         cout << item.expirationDate.day << " ";
         cout << item.expirationDate.month << " ";
         cout << item.expirationDate.year << "\n";
@@ -105,7 +105,7 @@ void example2_4_3() {
     myMap['x'] = 100;
     myMap.emplace('y', 200);
     myMap.insert(pair<char, int>('z', 300));
-    myMap.insert({'aa', 400}); // ошибка?  
+    myMap.insert({'aa', 400}); // РѕС€РёР±РєР°?  
     myMap.insert({'1', 500});
 	myMap.insert({'1', 600});
 	myMap.emplace('1', 700);
@@ -119,8 +119,8 @@ void example2_4_3() {
     cout << "}\n";
 
 	cout << "count = " << myMap.count('y') << "\n";
-    // map::count(key) - возвращает количество элементов, соответствующих ключу. 
-	// Что может вернуть count в map?
+    // map::count(key) - РІРѕР·РІСЂР°С‰Р°РµС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ, СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёС… РєР»СЋС‡Сѓ. 
+	// Р§С‚Рѕ РјРѕР¶РµС‚ РІРµСЂРЅСѓС‚СЊ count РІ map?
 
 	if (myMap.find(111) != myMap.end()) {
 		cout << "Element exist!" << endl;
@@ -136,7 +136,6 @@ Associative containers:
 	multiset
 	map
 	multimap
-
 Unordered associative containers:
 	unordered_set
 	unordered_multiset
